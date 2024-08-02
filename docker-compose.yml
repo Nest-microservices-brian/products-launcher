@@ -76,6 +76,8 @@ services:
     environment:
       - PORT=${AUTH_PORT}
       - NATS_SERVERS=${NATS_SERVERS}
+      - DATABASE_URL=${AUTH_DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
 
 volumes:
   orders-microservices_postgres-orders-microservice:
