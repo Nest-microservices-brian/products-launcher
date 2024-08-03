@@ -6,7 +6,7 @@ services:
     build:
       context: ./client-gateway
       dockerfile: Dockerfile.prod
-    image: client-gateway
+    image: ${CLOUD_URL}/client-gateway
     ports:
       - ${CLIENT_GATEWAY_PORT}:${CLIENT_GATEWAY_PORT}
     environment:
@@ -17,7 +17,7 @@ services:
     build:
       context: ./auth-ms
       dockerfile: Dockerfile.prod
-    image: auth-ms
+    image: ${CLOUD_URL}/auth-ms
     environment:
       - PORT=${AUTH_PORT}
       - NATS_SERVERS=${NATS_SERVERS}
@@ -28,7 +28,7 @@ services:
     build:
       context: ./products-ms
       dockerfile: Dockerfile.prod
-    image: products-ms
+    image: ${CLOUD_URL}/products-ms
     environment:
       - PORT=${PRODUCTS_PORT}
       - NATS_SERVERS=${NATS_SERVERS}
@@ -40,7 +40,7 @@ services:
       dockerfile: Dockerfile.prod
       args:
         - ORDERS_DATABASE_URL=${ORDERS_DATABASE_URL}
-    image: orders-ms
+    image: ${CLOUD_URL}/orders-ms
     environment:
       - PORT=${ORDERS_PORT}
       - NATS_SERVERS=${NATS_SERVERS}
@@ -50,7 +50,7 @@ services:
     build:
       context: ./payments-ms
       dockerfile: Dockerfile.prod
-    image: payments-ms
+    image: ${CLOUD_URL}/payments-ms
     ports:
       - ${PAYMENTS_MS_PORT}:${PAYMENTS_MS_PORT}
     environment:
