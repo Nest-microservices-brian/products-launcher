@@ -3,8 +3,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: client-gateway
-  name: client-gateway
+    app: payments-webhook
+  name: payments-webhook
 spec:
   ports:
   - name: "3000"
@@ -12,7 +12,7 @@ spec:
     protocol: TCP
     targetPort: 3000
   selector:
-    app: client-gateway
+    app: payments-ms
   type: NodePort
 status:
   loadBalancer: {}
